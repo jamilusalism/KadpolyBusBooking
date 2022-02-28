@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 28, 2022 at 06:07 PM
+-- Generation Time: Feb 28, 2022 at 06:18 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -51,6 +51,13 @@ CREATE TABLE `bus` (
   `date_updated` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `bus`
+--
+
+INSERT INTO `bus` (`id`, `name`, `bus_number`, `status`, `date_updated`) VALUES
+(7, 'Bus 100-People Capacity', '1', 1, '2022-02-28 18:10:03');
+
 -- --------------------------------------------------------
 
 --
@@ -65,6 +72,14 @@ CREATE TABLE `location` (
   `status` tinyint(1) NOT NULL DEFAULT 1 COMMENT '0= inactive , 1= active',
   `date_updated` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `location`
+--
+
+INSERT INTO `location` (`id`, `terminal_name`, `city`, `state`, `status`, `date_updated`) VALUES
+(4, 'Main Campus', 'Tudun Wada', 'Kaduna South', 1, '2022-02-28 18:11:39'),
+(5, 'Barnawa Campus', 'Barnawa', 'Kaduna South', 1, '2022-02-28 18:11:32');
 
 -- --------------------------------------------------------
 
@@ -84,6 +99,13 @@ CREATE TABLE `schedule_list` (
   `price` text NOT NULL,
   `date_updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `schedule_list`
+--
+
+INSERT INTO `schedule_list` (`id`, `bus_id`, `from_location`, `to_location`, `departure_time`, `eta`, `status`, `availability`, `price`, `date_updated`) VALUES
+(4, 7, 4, 5, '2022-02-28 18:11:00', '2022-03-01 18:11:00', 1, 100, '50', '2022-02-28 17:12:12');
 
 -- --------------------------------------------------------
 
@@ -156,19 +178,19 @@ ALTER TABLE `booked`
 -- AUTO_INCREMENT for table `bus`
 --
 ALTER TABLE `bus`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `location`
 --
 ALTER TABLE `location`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `schedule_list`
 --
 ALTER TABLE `schedule_list`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`

@@ -35,7 +35,8 @@ $location = $conn->query("SELECT id,Concat(terminal_name,', ',city,', ',state) a
 				$location = $conn->query("SELECT id,Concat(terminal_name,', ',city,', ',state) as location FROM location where status = 1");
 			?>
 			<div class="form-group mb-2">
-				<label for="to_location" class="control-label">To</label>
+				<label for="to_location" class="control-label">To <?php echo isset($meta['to_location']); ?> 
+				</label>
 				<select name="to_location" id="to_location" class="form-control" required>
 					<option value="" <?php echo isset($meta['to_location']) && $meta['to_location'] > 0 ? '' : 'selected'  ?>  disabled="">Select Here</option>
 					<?php while($row2 = $location->fetch_assoc()){ ?>
