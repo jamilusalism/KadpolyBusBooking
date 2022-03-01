@@ -81,15 +81,24 @@
     </div>
 
 
-  <!-- ======= Footer ======= -->
+    <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="container-fluid py-4">
-      <div class="text-center">
-        <div class="copyright">
-          &copy; Copyright <strong><span>Bashir Abdulwahab - KPT/CST/19/00000</span></strong>. 
-          2022 All Rights Reserved
+      
+      
+        <div class="row">
+          <div class="col-md-6">
+            <div class="count-box">
+             <p> <b>Supervisor</b>: Dr. Mal. Abbas Yusuf </p>
+            </div>
+          </div>
+          <div class="col-md-6 mt-5 mt-lg-0">
+            <div class="count-box">
+              <p><b>Developed by</b>: Bashir Abdulwahab - KPT/CST/19/46763</p>
+            </div>
+          </div>
         </div>
-      </div>
+      
     </div>
   </footer>
 

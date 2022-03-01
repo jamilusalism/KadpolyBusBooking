@@ -25,7 +25,7 @@ $location = $conn->query("SELECT id,Concat(terminal_name,', ',city,', ',state) a
 			<div class="form-group mb-2">
 				<label for="from_location" class="control-label">From</label>
 				<select name="from_location" id="from_location" class="form-control" required>
-					<option value="" <?php echo isset($meta['to_location']) && $meta['from_location'] > 0 ? '' : 'selected'  ?> disabled="">Select Here</option>
+					<option value="" <?php echo isset($meta['to_location']) && $meta['from_location'] > 0 ? '' : 'selected'  ?> disabled="">Select where you are departing from</option>
 					<?php while($row = $location->fetch_assoc()){ ?>
 						<option value="<?php echo $row['id'] ?>" <?php echo isset($meta['from_location']) && $meta['from_location'] == $row['id'] ? 'selected' : ''  ?>><?php echo $row['location']  ?></option>
 					<?php } ?>
@@ -33,14 +33,16 @@ $location = $conn->query("SELECT id,Concat(terminal_name,', ',city,', ',state) a
 			</div>
 			<?php 
 				$location = $conn->query("SELECT id,Concat(terminal_name,', ',city,', ',state) as location FROM location where status = 1");
-			?>
+			?>			
+
 			<div class="form-group mb-2">
-				<label for="to_location" class="control-label">To <?php echo isset($meta['to_location']); ?> 
-				</label>
+				<label for="to_location" class="control-label">To </label>
 				<select name="to_location" id="to_location" class="form-control" required>
-					<option value="" <?php echo isset($meta['to_location']) && $meta['to_location'] > 0 ? '' : 'selected'  ?>  disabled="">Select Here</option>
+					<option value="" <?php echo isset($meta['to_location']) && $meta['to_location'] > 0 ? '' : 'selected'  ?>  disabled="">Select your destination</option>
 					<?php while($row2 = $location->fetch_assoc()){ ?>
-						<option value="<?php echo $row2['id'] ?>" <?php echo isset($meta['to_location']) && $meta['to_location'] == $row['id'] ? 'selected' : ''  ?>><?php echo $row2['location']  ?></option>
+						<option value="<?php echo $row2['id'] ?>" <?php echo isset($meta['to_location']) && $meta['to_location'] == $row2['id'] ? 'selected' : ''  ?> > 
+								<?php echo $row2['location']  ?>
+					</option>
 					<?php } ?>
 				</select>
 			</div>
